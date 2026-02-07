@@ -1,0 +1,91 @@
+    Checking talender v0.1.0 (C:\Users\alexa\Programme\talender\src-tauri)
+warning: unused import: `std::sync::Mutex`
+ --> src\lib.rs:3:5
+  |
+3 | use std::sync::Mutex;
+  |     ^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0277]: the trait bound `((&str, i64),): IntoParams` is not satisfied
+   --> src\db.rs:446:9
+    |
+444 |     let mut rows = conn.query(
+    |                         ----- required by a bound introduced by this call
+445 |         "SELECT id, type, weekday_mask, monthday, interval_days FROM task_schedule WHERE task_id = :task_id AND effective_to IS NULL",
+446 |         ((":task_id", task_id),)
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^ the trait `IntoParams` is not implemented for `((&str, i64),)`
+    |
+    = help: the following other types implement trait `IntoParams`:
+              ((&str, A), (&str, B))
+              ((&str, A), (&str, B), (&str, C))
+              ((&str, A), (&str, B), (&str, C), (&str, D))
+              ((&str, A), (&str, B), (&str, C), (&str, D), (&str, E))
+              ((&str, A), (&str, B), (&str, C), (&str, D), (&str, E), (&str, F))
+              ((&str, A), (&str, B), (&str, C), (&str, D), (&str, E), (&str, F), (&str, G))
+              ((&str, A), (&str, B), (&str, C), (&str, D), (&str, E), (&str, F), (&str, G), (&str, H))
+              ((&str, A), (&str, B), (&str, C), (&str, D), ..., ..., ..., ..., ...)
+            and 23 others
+note: required by a bound in `Connection::query`
+   --> C:\Users\alexa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libsql-0.6.0\src\connection.rs:160:55
+    |
+160 |     pub async fn query(&self, sql: &str, params: impl IntoParams) -> Result<Rows> {
+    |                                                       ^^^^^^^^^^ required by this bound in `Connection::query`
+    = note: the full name for the type has been written to 'C:\Users\alexa\Programme\talender\src-tauri\target\debug\deps\talender_lib-baeeb6e46266b5ff.long-type-11033931543159288928.txt'
+    = note: consider using `--verbose` to print the full type name to the console
+
+error[E0277]: the trait bound `((&str, i64),): IntoParams` is not satisfied
+   --> src\db.rs:444:20
+    |
+444 |       let mut rows = conn.query(
+    |  ____________________^
+445 | |         "SELECT id, type, weekday_mask, monthday, interval_days FROM task_schedule WHERE task_id = :task_id AND effective_to IS NULL",
+446 | |         ((":task_id", task_id),)
+447 | |     ).await?;
+    | |_____^ the trait `IntoParams` is not implemented for `((&str, i64),)`
+    |
+    = help: the following other types implement trait `IntoParams`:
+              ((&str, A), (&str, B))
+              ((&str, A), (&str, B), (&str, C))
+              ((&str, A), (&str, B), (&str, C), (&str, D))
+              ((&str, A), (&str, B), (&str, C), (&str, D), (&str, E))
+              ((&str, A), (&str, B), (&str, C), (&str, D), (&str, E), (&str, F))
+              ((&str, A), (&str, B), (&str, C), (&str, D), (&str, E), (&str, F), (&str, G))
+              ((&str, A), (&str, B), (&str, C), (&str, D), (&str, E), (&str, F), (&str, G), (&str, H))
+              ((&str, A), (&str, B), (&str, C), (&str, D), ..., ..., ..., ..., ...)
+            and 23 others
+note: required by a bound in `Connection::query`
+   --> C:\Users\alexa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libsql-0.6.0\src\connection.rs:160:55
+    |
+160 |     pub async fn query(&self, sql: &str, params: impl IntoParams) -> Result<Rows> {
+    |                                                       ^^^^^^^^^^ required by this bound in `Connection::query`
+    = note: the full name for the type has been written to 'C:\Users\alexa\Programme\talender\src-tauri\target\debug\deps\talender_lib-baeeb6e46266b5ff.long-type-11033931543159288928.txt'
+    = note: consider using `--verbose` to print the full type name to the console
+
+error[E0277]: the trait bound `((&str, i64),): IntoParams` is not satisfied
+   --> src\db.rs:447:7
+    |
+447 |     ).await?;
+    |       ^^^^^ the trait `IntoParams` is not implemented for `((&str, i64),)`
+    |
+    = help: the following other types implement trait `IntoParams`:
+              ((&str, A), (&str, B))
+              ((&str, A), (&str, B), (&str, C))
+              ((&str, A), (&str, B), (&str, C), (&str, D))
+              ((&str, A), (&str, B), (&str, C), (&str, D), (&str, E))
+              ((&str, A), (&str, B), (&str, C), (&str, D), (&str, E), (&str, F))
+              ((&str, A), (&str, B), (&str, C), (&str, D), (&str, E), (&str, F), (&str, G))
+              ((&str, A), (&str, B), (&str, C), (&str, D), (&str, E), (&str, F), (&str, G), (&str, H))
+              ((&str, A), (&str, B), (&str, C), (&str, D), ..., ..., ..., ..., ...)
+            and 23 others
+note: required by a bound in `Connection::query`
+   --> C:\Users\alexa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libsql-0.6.0\src\connection.rs:160:55
+    |
+160 |     pub async fn query(&self, sql: &str, params: impl IntoParams) -> Result<Rows> {
+    |                                                       ^^^^^^^^^^ required by this bound in `Connection::query`
+    = note: the full name for the type has been written to 'C:\Users\alexa\Programme\talender\src-tauri\target\debug\deps\talender_lib-baeeb6e46266b5ff.long-type-11033931543159288928.txt'
+    = note: consider using `--verbose` to print the full type name to the console
+
+For more information about this error, try `rustc --explain E0277`.
+warning: `talender` (lib) generated 1 warning
+error: could not compile `talender` (lib) due to 3 previous errors; 1 warning emitted

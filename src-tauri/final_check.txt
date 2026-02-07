@@ -1,0 +1,10 @@
+warning: unused import: `std::sync::Mutex`
+ --> src\lib.rs:3:5
+  |
+3 | use std::sync::Mutex;
+  |     ^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `talender` (lib) generated 1 warning (run `cargo fix --lib -p talender` to apply 1 suggestion)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.70s
